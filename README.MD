@@ -16,3 +16,9 @@ This project is targeting .NET Framework Version 4.6.1
 My API access key is not provided inside this GitHub repo - please see the attached files you received along with my application via email.
 
 It needs to be placed in the APIKEY value in App.config if you are building it yourself, or place the provided WinFormViewer.exe.config inside the bin folder alongside the executable.
+
+It should look like the following:
+
+    <appSettings>  
+      <add key="APIKEY" value="Client-ID xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" />
+    </appSettings>
