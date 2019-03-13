@@ -17,6 +17,7 @@ using System.Runtime.Serialization;
 using System.Net;
 using System.IO;
 
+
 namespace WinFormViewer
 {
     public partial class PowerpointGenerator : Form
@@ -211,22 +212,31 @@ namespace WinFormViewer
 
         }
 
-        private void downloadButton_Click(object sender, EventArgs e)
+        private string FindPath()
         {
-            if(!selectedImages.Any(model => model.PowerPoint != null))
+            if (!selectedImages.Any(model => model.PowerPoint != null))
             {
                 MessageBox.Show("No images selected!");
-                return;
+                return "";
             }
 
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
             var result = folderBrowserDialog.ShowDialog();
             if (result != DialogResult.OK)
             {
+                return "";
+            }
+            return folderBrowserDialog.SelectedPath;
+        }
+
+        private void downloadButton_Click(object sender, EventArgs e)
+        {
+            var selectedPath = FindPath();
+            if (selectedPath == "")
+            {
                 return;
             }
-            var selectedPath = folderBrowserDialog.SelectedPath;
-            
+
             using (var webClient = new WebClient())
             {
                 foreach (var image in selectedImages.Where(model => model.PowerPoint != null))
@@ -240,13 +250,46 @@ namespace WinFormViewer
 
         private void helpButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Enter a title, and then bold any words in the body of the powerpoint.\n" +
-                "You may select the text and click the bold button, or use Ctrl + B on your keyboard.\n" +
-                "Press the lookup button to search for web images with these criteria.\n" +
-                "Finally, select up to three images to download as an aid for your powerpoint project.\n" +
-                "The API I'm using is rate limited, so I do my best to limit the images to 3 seperate requests. I get 50 an hour.\n" +
-                "Quick reminder that my GitHub repo does not include my Access Key!\n" +
+            MessageBox.Show("Enter a title, and then bold any words in the body of the powerpoint.\n\n" +
+                "You may select the text and click the bold button, or use Ctrl + B on your keyboard.\n\n" +
+                "Press the lookup button to search for web images with these criteria.\n\n" +
+                "Finally, select up to three images to download as an aid for your powerpoint project or export as a powerpoint.\n\n" +
+                "The API I'm using is rate limited, so I do my best to limit the images to 3 seperate requests. I get 50 an hour.\n\n" +
+                "Quick reminder that my GitHub repo does not include my Access Key!\n\n" +
                 "Please insert it in App.config if you are builiding the source, or use a valid WinFormViewer.exe.config");
+        }
+
+        private async void exportButton_ClickAsync(object sender, EventArgs e)
+        {
+            var selectedPath = FindPath();
+            if(selectedPath == "")
+            {
+                return;
+            }
+
+            var exporter = new GeneratedClass();
+            var images = new List<string>();
+            foreach (var image in selectedImages.Where(model => model.PowerPoint != null))
+            {
+                var result = await DownloadImageAsync(image);
+                images.Add(result);
+            }
+            exporter.CreatePackage(selectedPath + "/" + titleTextBox.Text.Split(' ').First().ToString() + ".pptx"
+                , titleTextBox.Text, bodyTextBox.Text, images);
+        }
+
+        private async Task<string> DownloadImageAsync(ImageModel picture)
+        {
+            byte[] image = await new WebClient().DownloadDataTaskAsync(new Uri(picture.PowerPoint.Urls.Full));
+            try
+            {
+                var base64string = Convert.ToBase64String(image);
+                return base64string;
+            }
+            catch
+            {
+                return "";
+            }
         }
     }
 }

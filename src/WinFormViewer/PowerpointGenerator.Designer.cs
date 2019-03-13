@@ -37,6 +37,8 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.boldButton = new System.Windows.Forms.Button();
             this.lookupButton = new System.Windows.Forms.Button();
+            this.downloadButton = new System.Windows.Forms.Button();
+            this.helpButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -53,8 +55,7 @@
             this.selectedImage1 = new System.Windows.Forms.PictureBox();
             this.selectedImage2 = new System.Windows.Forms.PictureBox();
             this.selectedImage3 = new System.Windows.Forms.PictureBox();
-            this.downloadButton = new System.Windows.Forms.Button();
-            this.helpButton = new System.Windows.Forms.Button();
+            this.exportButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -162,6 +163,7 @@
             this.flowLayoutPanel2.Controls.Add(this.lookupButton);
             this.flowLayoutPanel2.Controls.Add(this.downloadButton);
             this.flowLayoutPanel2.Controls.Add(this.helpButton);
+            this.flowLayoutPanel2.Controls.Add(this.exportButton);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 363);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
@@ -190,6 +192,28 @@
             this.lookupButton.Text = "Lookup Images";
             this.lookupButton.UseVisualStyleBackColor = true;
             this.lookupButton.Click += new System.EventHandler(this.lookupButton_Click);
+            // 
+            // downloadButton
+            // 
+            this.downloadButton.AutoSize = true;
+            this.downloadButton.Location = new System.Drawing.Point(3, 32);
+            this.downloadButton.Name = "downloadButton";
+            this.downloadButton.Size = new System.Drawing.Size(147, 23);
+            this.downloadButton.TabIndex = 2;
+            this.downloadButton.Text = "Download Selected Images";
+            this.downloadButton.UseVisualStyleBackColor = true;
+            this.downloadButton.Click += new System.EventHandler(this.downloadButton_Click);
+            // 
+            // helpButton
+            // 
+            this.helpButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.helpButton.Location = new System.Drawing.Point(156, 32);
+            this.helpButton.Name = "helpButton";
+            this.helpButton.Size = new System.Drawing.Size(75, 23);
+            this.helpButton.TabIndex = 3;
+            this.helpButton.Text = "Help";
+            this.helpButton.UseVisualStyleBackColor = true;
+            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
             // 
             // panel1
             // 
@@ -359,27 +383,16 @@
             this.selectedImage3.TabIndex = 2;
             this.selectedImage3.TabStop = false;
             // 
-            // downloadButton
+            // exportButton
             // 
-            this.downloadButton.AutoSize = true;
-            this.downloadButton.Location = new System.Drawing.Point(3, 32);
-            this.downloadButton.Name = "downloadButton";
-            this.downloadButton.Size = new System.Drawing.Size(147, 23);
-            this.downloadButton.TabIndex = 2;
-            this.downloadButton.Text = "Download Selected Images";
-            this.downloadButton.UseVisualStyleBackColor = true;
-            this.downloadButton.Click += new System.EventHandler(this.downloadButton_Click);
-            // 
-            // helpButton
-            // 
-            this.helpButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.helpButton.Location = new System.Drawing.Point(156, 32);
-            this.helpButton.Name = "helpButton";
-            this.helpButton.Size = new System.Drawing.Size(75, 23);
-            this.helpButton.TabIndex = 3;
-            this.helpButton.Text = "Help";
-            this.helpButton.UseVisualStyleBackColor = true;
-            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
+            this.exportButton.AutoSize = true;
+            this.exportButton.Location = new System.Drawing.Point(3, 61);
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(180, 23);
+            this.exportButton.TabIndex = 4;
+            this.exportButton.Text = "Export as PowerPoint Presentation";
+            this.exportButton.UseVisualStyleBackColor = true;
+            this.exportButton.Click += new System.EventHandler(this.exportButton_ClickAsync);
             // 
             // PowerpointGenerator
             // 
@@ -448,6 +461,7 @@
         private System.Windows.Forms.PictureBox selectedImage3;
         private System.Windows.Forms.Button downloadButton;
         private System.Windows.Forms.Button helpButton;
+        private System.Windows.Forms.Button exportButton;
     }
 }
 

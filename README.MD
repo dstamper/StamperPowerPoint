@@ -3,6 +3,10 @@
 ## Description
 A WinForms based image aid, designed to search the internet and pull relevant images to be used in PowerPoint presentations.
 
+## Use
+Enter a valid title and body text of your slide. Clicking lookup with search the web for results related to the title, and bold keywords in the body.
+Selected images can be either manually saved, or export as a pptx. Currently the aspect ratio of the generated images is messed up in the XML.
+
 ### API
 The API I used for the imsage searching is [Unsplash](https://unsplash.com/)
 
