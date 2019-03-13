@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="RtfPipe, Version=1.0.6980.30005, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\RtfPipe.1.0.6980.30005\lib\net45\RtfPipe.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,16 +49,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="ImageModel.cs" />
+    <Compile Include="PowerpointGenerator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="PowerpointGenerator.Designer.cs">
+      <DependentUpon>PowerpointGenerator.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="PowerpointGenerator.resx">
+      <DependentUpon>PowerpointGenerator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -66,6 +70,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -81,19 +86,20 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\..\ImageRequest\ImageRequest.csproj">
+    <ProjectReference Include="..\ImageRequest\ImageRequest.csproj">
       <Project>{e2c355df-b24e-4c56-8021-ad6ca181bec3}</Project>
       <Name>ImageRequest</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\SharedModel\SharedModel.csproj">
+    <ProjectReference Include="..\PowerPointExport\PowerPointExport.csproj">
+      <Project>{48c69807-1760-416a-a927-4970d3aca978}</Project>
+      <Name>PowerPointExport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharedModel\SharedModel.csproj">
       <Project>{4b78d4ce-11ec-43cc-b1dc-9b0861009bad}</Project>
       <Name>SharedModel</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
-    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

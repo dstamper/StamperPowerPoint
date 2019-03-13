@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ImageRequest.Model;
+using ImageRequest;
 
 namespace WinFormViewer
 {
@@ -15,16 +15,10 @@ namespace WinFormViewer
         [STAThread]
         static void Main()
         {
-            Console.WriteLine("Starting");
-            UnsplashImageClient client = new ImageRequest.Model.UnsplashImageClient();
-            client.MakeRequest("car").Wait();
-            Console.WriteLine("Finished");
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-
-
+            Application.Run(new PowerpointGenerator());
+            
         }
     }
 }

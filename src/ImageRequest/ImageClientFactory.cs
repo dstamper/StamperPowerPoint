@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace ImageRequest
 {
-
-    public class Class1
+    public static class ImageClientFactory
     {
-        static void Main(string[] args)
+        public static IImageClient Create()
         {
-            // Display the number of command line arguments:
-            System.Console.WriteLine(args.Length);
+            return new UnsplashImageClient();
         }
     }
 }

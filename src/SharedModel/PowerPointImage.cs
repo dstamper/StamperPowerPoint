@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SharedModel
 {
-    public class Image
+    public class PowerPointImage
     {
         public string Id { get; set; }
         public Url Urls { get; set; }
