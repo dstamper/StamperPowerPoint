@@ -17,7 +17,6 @@ using System.Runtime.Serialization;
 using System.Net;
 using System.IO;
 
-
 namespace WinFormViewer
 {
     public partial class PowerpointGenerator : Form
@@ -246,6 +245,7 @@ namespace WinFormViewer
                 }
                 MessageBox.Show("Downloading files begun, will be done shortly.");
             }
+
         }
 
         private void helpButton_Click(object sender, EventArgs e)
@@ -259,26 +259,33 @@ namespace WinFormViewer
                 "Please insert it in App.config if you are builiding the source, or use a valid WinFormViewer.exe.config");
         }
 
-        private async void exportButton_ClickAsync(object sender, EventArgs e)
+        private void exportButton_ClickAsync(object sender, EventArgs e)
         {
             var selectedPath = FindPath();
-            if(selectedPath == "")
+            if (selectedPath == "")
             {
                 return;
             }
 
-            var exporter = new GeneratedClass();
-            var images = new List<string>();
-            foreach (var image in selectedImages.Where(model => model.PowerPoint != null))
+            List<string> imageNames = new List<string>();
+            using (var webClient = new WebClient())
             {
-                var result = await DownloadImageAsync(image);
-                images.Add(result);
+        
+                
+                foreach (var image in selectedImages.Where(model => model.PowerPoint != null))
+                {
+                    var path = Path.Combine(selectedPath, image.PowerPoint.Id + ".jpg");
+                    Cursor.Current = Cursors.WaitCursor;
+                    webClient.DownloadFile(new Uri(image.PowerPoint.Urls.Full), path);
+                    imageNames.Add(image.PowerPoint.Id + ".jpg");
+                }
+                
+                DocumentRenderer.ExportToPowerPoint(selectedPath, imageNames, titleTextBox.Text, bodyTextBox.Text
             }
-            exporter.CreatePackage(selectedPath + "/" + titleTextBox.Text.Split(' ').First().ToString() + ".pptx"
-                , titleTextBox.Text, bodyTextBox.Text, images);
         }
 
-        private async Task<string> DownloadImageAsync(ImageModel picture)
+        //Unused base64 string download of image
+        private async Task<string> DownloadImageAsyncString(ImageModel picture)
         {
             byte[] image = await new WebClient().DownloadDataTaskAsync(new Uri(picture.PowerPoint.Urls.Full));
             try

@@ -39,6 +39,7 @@
             this.lookupButton = new System.Windows.Forms.Button();
             this.downloadButton = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
+            this.exportButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -55,7 +56,6 @@
             this.selectedImage1 = new System.Windows.Forms.PictureBox();
             this.selectedImage2 = new System.Windows.Forms.PictureBox();
             this.selectedImage3 = new System.Windows.Forms.PictureBox();
-            this.exportButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -92,27 +92,28 @@
             this.tableLayoutPanel1.Controls.Add(this.selectedImagesFlowLayout, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(6);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1621, 893);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.groupBox2, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 6);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(6);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(234, 354);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(474, 613);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // groupBox1
@@ -120,9 +121,11 @@
             this.groupBox1.Controls.Add(this.titleTextBox);
             this.groupBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(228, 171);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBox1.Size = new System.Drawing.Size(462, 110);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Powerpoint Title";
@@ -130,9 +133,10 @@
             // titleTextBox
             // 
             this.titleTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.titleTextBox.Location = new System.Drawing.Point(3, 16);
+            this.titleTextBox.Location = new System.Drawing.Point(6, 30);
+            this.titleTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(222, 152);
+            this.titleTextBox.Size = new System.Drawing.Size(450, 74);
             this.titleTextBox.TabIndex = 0;
             this.titleTextBox.Text = "Please enter the title for the slide";
             // 
@@ -140,9 +144,11 @@
             // 
             this.groupBox2.Controls.Add(this.bodyTextBox);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(3, 180);
+            this.groupBox2.Location = new System.Drawing.Point(6, 128);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(228, 171);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBox2.Size = new System.Drawing.Size(462, 479);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Powerpoint Body";
@@ -150,33 +156,36 @@
             // bodyTextBox
             // 
             this.bodyTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bodyTextBox.Location = new System.Drawing.Point(3, 16);
+            this.bodyTextBox.Location = new System.Drawing.Point(6, 30);
+            this.bodyTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.bodyTextBox.Name = "bodyTextBox";
-            this.bodyTextBox.Size = new System.Drawing.Size(222, 152);
+            this.bodyTextBox.Size = new System.Drawing.Size(450, 443);
             this.bodyTextBox.TabIndex = 0;
             this.bodyTextBox.Text = "";
             this.bodyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.bodyTextBox_KeyDown);
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.boldButton);
-            this.flowLayoutPanel2.Controls.Add(this.lookupButton);
-            this.flowLayoutPanel2.Controls.Add(this.downloadButton);
             this.flowLayoutPanel2.Controls.Add(this.helpButton);
+            this.flowLayoutPanel2.Controls.Add(this.lookupButton);
+            this.flowLayoutPanel2.Controls.Add(this.boldButton);
+            this.flowLayoutPanel2.Controls.Add(this.downloadButton);
             this.flowLayoutPanel2.Controls.Add(this.exportButton);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 363);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(6, 631);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(6);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(234, 84);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(474, 256);
             this.flowLayoutPanel2.TabIndex = 2;
             // 
             // boldButton
             // 
             this.boldButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.boldButton.AutoSize = true;
-            this.boldButton.Location = new System.Drawing.Point(3, 3);
+            this.boldButton.Location = new System.Drawing.Point(6, 62);
+            this.boldButton.Margin = new System.Windows.Forms.Padding(6);
             this.boldButton.Name = "boldButton";
-            this.boldButton.Size = new System.Drawing.Size(109, 23);
+            this.boldButton.Size = new System.Drawing.Size(416, 67);
             this.boldButton.TabIndex = 0;
             this.boldButton.Text = "Bold Selection Text";
             this.boldButton.UseVisualStyleBackColor = true;
@@ -184,10 +193,10 @@
             // 
             // lookupButton
             // 
-            this.lookupButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lookupButton.Location = new System.Drawing.Point(118, 3);
+            this.lookupButton.Location = new System.Drawing.Point(168, 6);
+            this.lookupButton.Margin = new System.Windows.Forms.Padding(6);
             this.lookupButton.Name = "lookupButton";
-            this.lookupButton.Size = new System.Drawing.Size(75, 23);
+            this.lookupButton.Size = new System.Drawing.Size(150, 44);
             this.lookupButton.TabIndex = 1;
             this.lookupButton.Text = "Lookup Images";
             this.lookupButton.UseVisualStyleBackColor = true;
@@ -196,9 +205,10 @@
             // downloadButton
             // 
             this.downloadButton.AutoSize = true;
-            this.downloadButton.Location = new System.Drawing.Point(3, 32);
+            this.downloadButton.Location = new System.Drawing.Point(6, 141);
+            this.downloadButton.Margin = new System.Windows.Forms.Padding(6);
             this.downloadButton.Name = "downloadButton";
-            this.downloadButton.Size = new System.Drawing.Size(147, 23);
+            this.downloadButton.Size = new System.Drawing.Size(564, 67);
             this.downloadButton.TabIndex = 2;
             this.downloadButton.Text = "Download Selected Images";
             this.downloadButton.UseVisualStyleBackColor = true;
@@ -207,13 +217,26 @@
             // helpButton
             // 
             this.helpButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.helpButton.Location = new System.Drawing.Point(156, 32);
+            this.helpButton.Location = new System.Drawing.Point(6, 6);
+            this.helpButton.Margin = new System.Windows.Forms.Padding(6);
             this.helpButton.Name = "helpButton";
-            this.helpButton.Size = new System.Drawing.Size(75, 23);
+            this.helpButton.Size = new System.Drawing.Size(150, 44);
             this.helpButton.TabIndex = 3;
             this.helpButton.Text = "Help";
             this.helpButton.UseVisualStyleBackColor = true;
             this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
+            // 
+            // exportButton
+            // 
+            this.exportButton.AutoSize = true;
+            this.exportButton.Location = new System.Drawing.Point(6, 220);
+            this.exportButton.Margin = new System.Windows.Forms.Padding(6);
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(710, 67);
+            this.exportButton.TabIndex = 4;
+            this.exportButton.Text = "Export as PowerPoint Presentation";
+            this.exportButton.UseVisualStyleBackColor = true;
+            this.exportButton.Click += new System.EventHandler(this.exportButton_ClickAsync);
             // 
             // panel1
             // 
@@ -221,9 +244,10 @@
             this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(243, 3);
+            this.panel1.Location = new System.Drawing.Point(492, 6);
+            this.panel1.Margin = new System.Windows.Forms.Padding(6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(554, 354);
+            this.panel1.Size = new System.Drawing.Size(1123, 613);
             this.panel1.TabIndex = 3;
             // 
             // flowLayoutPanel1
@@ -241,16 +265,18 @@
             this.flowLayoutPanel1.Controls.Add(this.pictureBox10);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(6);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(554, 354);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1123, 613);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(6, 6);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 150);
+            this.pictureBox1.Size = new System.Drawing.Size(400, 288);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -258,9 +284,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pictureBox2.Location = new System.Drawing.Point(209, 3);
+            this.pictureBox2.Location = new System.Drawing.Point(418, 6);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(200, 150);
+            this.pictureBox2.Size = new System.Drawing.Size(400, 288);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
@@ -268,9 +295,10 @@
             // pictureBox3
             // 
             this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pictureBox3.Location = new System.Drawing.Point(3, 159);
+            this.pictureBox3.Location = new System.Drawing.Point(6, 306);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(200, 150);
+            this.pictureBox3.Size = new System.Drawing.Size(400, 288);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
@@ -278,9 +306,10 @@
             // pictureBox4
             // 
             this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pictureBox4.Location = new System.Drawing.Point(209, 159);
+            this.pictureBox4.Location = new System.Drawing.Point(418, 306);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(200, 150);
+            this.pictureBox4.Size = new System.Drawing.Size(400, 288);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
@@ -288,9 +317,10 @@
             // pictureBox5
             // 
             this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pictureBox5.Location = new System.Drawing.Point(3, 315);
+            this.pictureBox5.Location = new System.Drawing.Point(6, 606);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(200, 150);
+            this.pictureBox5.Size = new System.Drawing.Size(400, 288);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox5.TabIndex = 4;
             this.pictureBox5.TabStop = false;
@@ -298,9 +328,10 @@
             // pictureBox6
             // 
             this.pictureBox6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pictureBox6.Location = new System.Drawing.Point(209, 315);
+            this.pictureBox6.Location = new System.Drawing.Point(418, 606);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(200, 150);
+            this.pictureBox6.Size = new System.Drawing.Size(400, 288);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox6.TabIndex = 5;
             this.pictureBox6.TabStop = false;
@@ -308,9 +339,10 @@
             // pictureBox7
             // 
             this.pictureBox7.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pictureBox7.Location = new System.Drawing.Point(3, 471);
+            this.pictureBox7.Location = new System.Drawing.Point(6, 906);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(200, 150);
+            this.pictureBox7.Size = new System.Drawing.Size(400, 288);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox7.TabIndex = 6;
             this.pictureBox7.TabStop = false;
@@ -318,9 +350,10 @@
             // pictureBox8
             // 
             this.pictureBox8.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pictureBox8.Location = new System.Drawing.Point(209, 471);
+            this.pictureBox8.Location = new System.Drawing.Point(418, 906);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(200, 150);
+            this.pictureBox8.Size = new System.Drawing.Size(400, 288);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox8.TabIndex = 7;
             this.pictureBox8.TabStop = false;
@@ -328,9 +361,10 @@
             // pictureBox9
             // 
             this.pictureBox9.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pictureBox9.Location = new System.Drawing.Point(3, 627);
+            this.pictureBox9.Location = new System.Drawing.Point(6, 1206);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(200, 150);
+            this.pictureBox9.Size = new System.Drawing.Size(400, 288);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox9.TabIndex = 8;
             this.pictureBox9.TabStop = false;
@@ -338,9 +372,10 @@
             // pictureBox10
             // 
             this.pictureBox10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pictureBox10.Location = new System.Drawing.Point(209, 627);
+            this.pictureBox10.Location = new System.Drawing.Point(418, 1206);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(200, 150);
+            this.pictureBox10.Size = new System.Drawing.Size(400, 288);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox10.TabIndex = 9;
             this.pictureBox10.TabStop = false;
@@ -351,14 +386,16 @@
             this.selectedImagesFlowLayout.Controls.Add(this.selectedImage2);
             this.selectedImagesFlowLayout.Controls.Add(this.selectedImage3);
             this.selectedImagesFlowLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.selectedImagesFlowLayout.Location = new System.Drawing.Point(243, 363);
+            this.selectedImagesFlowLayout.Location = new System.Drawing.Point(492, 631);
+            this.selectedImagesFlowLayout.Margin = new System.Windows.Forms.Padding(6);
             this.selectedImagesFlowLayout.Name = "selectedImagesFlowLayout";
-            this.selectedImagesFlowLayout.Size = new System.Drawing.Size(554, 84);
+            this.selectedImagesFlowLayout.Size = new System.Drawing.Size(1123, 256);
             this.selectedImagesFlowLayout.TabIndex = 4;
             // 
             // selectedImage1
             // 
-            this.selectedImage1.Location = new System.Drawing.Point(3, 3);
+            this.selectedImage1.Location = new System.Drawing.Point(6, 6);
+            this.selectedImage1.Margin = new System.Windows.Forms.Padding(6);
             this.selectedImage1.Name = "selectedImage1";
             this.selectedImage1.Size = new System.Drawing.Size(200, 50);
             this.selectedImage1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -367,7 +404,8 @@
             // 
             // selectedImage2
             // 
-            this.selectedImage2.Location = new System.Drawing.Point(209, 3);
+            this.selectedImage2.Location = new System.Drawing.Point(218, 6);
+            this.selectedImage2.Margin = new System.Windows.Forms.Padding(6);
             this.selectedImage2.Name = "selectedImage2";
             this.selectedImage2.Size = new System.Drawing.Size(200, 50);
             this.selectedImage2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -376,30 +414,21 @@
             // 
             // selectedImage3
             // 
-            this.selectedImage3.Location = new System.Drawing.Point(3, 59);
+            this.selectedImage3.Location = new System.Drawing.Point(430, 6);
+            this.selectedImage3.Margin = new System.Windows.Forms.Padding(6);
             this.selectedImage3.Name = "selectedImage3";
             this.selectedImage3.Size = new System.Drawing.Size(200, 50);
             this.selectedImage3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.selectedImage3.TabIndex = 2;
             this.selectedImage3.TabStop = false;
             // 
-            // exportButton
-            // 
-            this.exportButton.AutoSize = true;
-            this.exportButton.Location = new System.Drawing.Point(3, 61);
-            this.exportButton.Name = "exportButton";
-            this.exportButton.Size = new System.Drawing.Size(180, 23);
-            this.exportButton.TabIndex = 4;
-            this.exportButton.Text = "Export as PowerPoint Presentation";
-            this.exportButton.UseVisualStyleBackColor = true;
-            this.exportButton.Click += new System.EventHandler(this.exportButton_ClickAsync);
-            // 
             // PowerpointGenerator
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1621, 893);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "PowerpointGenerator";
             this.Text = "David Stamper PowerPoint";
             this.tableLayoutPanel1.ResumeLayout(false);
